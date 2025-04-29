@@ -1,2 +1,5 @@
-# Phonics
-A software platform compatible with Raspberry Pi.
+# AnimDuo
+>What is AnimDuo?
+AnimDuo is a expanded version of AnimOne.
+Check out AnimOne for more details.
+##
