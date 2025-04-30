@@ -1,3 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>200 Unique Colored Rings</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      position: relative;
+      width: 800px;
+      height: 800px;
+    }
+
+    .ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid transparent;
+      border-top: 2px solid;
+      border-radius: 50%;
+      animation: spin linear infinite, glow 4s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 4px currentColor, 0 0 10px currentColor;
+      }
+      50% {
+        box-shadow: 0 0 10px currentColor, 0 0 30px currentColor;
+      }
+      100% {
+        box-shadow: 0 0 4px currentColor, 0 0 10px currentColor;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="ringContainer"></div>
+
+  <script>
+    const container = document.getElementById('ringContainer');
+    const totalRings = 200;
+
+    // Curated aesthetic color palette
+    const colorPalette = [
+      '#00f5d4', '#0fffc1', '#9cfc97', '#a0ffe6', '#9cafff',
+      '#c1bfff', '#ffc1f3', '#ffb5e8', '#fcd5ce', '#ffdab9',
+      '#fef9c7', '#e4ffc1', '#b8f3ff', '#caffbf', '#ade8f4',
+      '#ffb3c1', '#d0f4de', '#fbc4ab', '#fcd5ce', '#ffd6a5',
+      '#b5ead7', '#ffdac1', '#c7ceea', '#ffcbf2', '#a2d2ff',
+      '#f1c0e8', '#bde0fe', '#e2f0cb', '#cdb4db', '#fec5bb'
+    ];
+
+    for (let i = 0; i < totalRings; i++) {
+      const ring = document.createElement('div');
+      ring.classList.add('ring');
+
+      const size = 20 + i * 3;
+      ring.style.width = `${size}px`;
+      ring.style.height = `${size}px`;
+
+      // Choose a color from the palette, cycling through if fewer than 200
+      const color = colorPalette[i % colorPalette.length];
+      ring.style.borderTopColor = color;
+      ring.style.color = color;
+
+      // Spin duration varies slightly
+      const spinDuration = (1 + i * 0.01).toFixed(2);
+      ring.style.animationDuration = `${spinDuration}s, 4s`;
+
+      container.appendChild(ring);
+    }
+  </script>
+</body>
+</html>
 
 
 
