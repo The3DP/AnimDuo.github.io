@@ -1,7 +1,7 @@
 # AnimDuo
 >What is AnimDuo?
 ##
-AnimDuo is a expanded version of AnimOne.
+AnimDuo is the second repository of the of "Anim-" series.
 Check out AnimOne for more details.
 ##
 Thank you for understanding the rules and regulations in LICENSE.
