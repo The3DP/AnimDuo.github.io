@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>200 Green Glow Rings</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      position: relative;
+      width: 800px;
+      height: 800px;
+    }
+
+    .ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid transparent;
+      border-top: 2px solid #00ff00;
+      border-radius: 50%;
+      color: #00ff00;
+      animation: spin linear infinite, greenGlow 4s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes greenGlow {
+      0% {
+        box-shadow: 0 0 5px #90ee90, 0 0 15px #90ee90;
+      }
+      25% {
+        box-shadow: 0 0 10px #006400, 0 0 25px #006400;
+      }
+      50% {
+        box-shadow: 0 0 5px #90ee90, 0 0 15px #90ee90;
+      }
+      75% {
+        box-shadow: 0 0 10px #006400, 0 0 25px #006400;
+      }
+      100% {
+        box-shadow: 0 0 5px #90ee90, 0 0 15px #90ee90;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="ringContainer"></div>
+
+  <script>
+    const container = document.getElementById('ringContainer');
+    const totalRings = 200;
+
+    for (let i = 0; i < totalRings; i++) {
+      const ring = document.createElement('div');
+      ring.classList.add('ring');
+
+      const size = 20 + i * 3; // keep inner rings small, outer rings big
+      ring.style.width = `${size}px`;
+      ring.style.height = `${size}px`;
+
+      const spinDuration = (1 + i * 0.015).toFixed(2);
+      ring.style.animationDuration = `${spinDuration}s, 4s`;
+
+      container.appendChild(ring);
+    }
+  </script>
+</body>
+</html>
 
