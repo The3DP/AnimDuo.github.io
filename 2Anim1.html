@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neon Spinner</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0f0f0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
+    .spinner {
+      width: 100px;
+      height: 100px;
+      border: 8px solid transparent;
+      border-top: 8px solid #0ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite, glow 2s ease-in-out infinite alternate;
+      box-shadow: 0 0 20px #0ff, 0 0 40px #0ff, 0 0 60px #0ff;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+        border-top: 8px solid #0ff;
+      }
+      100% {
+        box-shadow: 0 0 25px #0ff, 0 0 50px #0ff;
+        border-top: 8px solid #00f6ff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="spinner"></div>
+</body>
+</html>
