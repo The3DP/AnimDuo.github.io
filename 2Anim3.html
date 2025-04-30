@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Green Glow Rings</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
+    .container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+    }
+
+    .ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 4px solid transparent;
+      border-top: 4px solid;
+      border-radius: 50%;
+      animation: spin linear infinite, greenGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes greenGlow {
+      0% {
+        box-shadow: 0 0 5px #90ee90, 0 0 15px #90ee90; /* Light green */
+      }
+      25% {
+        box-shadow: 0 0 10px #006400, 0 0 25px #006400; /* Dark green */
+      }
+      50% {
+        box-shadow: 0 0 5px #90ee90, 0 0 15px #90ee90; /* Back to light */
+      }
+      75% {
+        box-shadow: 0 0 10px #006400, 0 0 25px #006400; /* Dark again */
+      }
+      100% {
+        box-shadow: 0 0 5px #90ee90, 0 0 15px #90ee90; /* End with light */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 20 rings with glowing green border and different spin speeds -->
+    <script>
+      const container = document.querySelector('.container');
+
+      for (let i = 0; i < 20; i++) {
+        const ring = document.createElement('div');
+        ring.classList.add('ring');
+
+        const size = 50 + i * 10;
+        ring.style.width = `${size}px`;
+        ring.style.height = `${size}px`;
+
+        // All rings are green themed
+        ring.style.borderTopColor = '#00ff00'; // neon green
+        ring.style.color = '#00ff00';
+
+        ring.style.animationDuration = `${1 + i * 0.2}s, 4s`; // spin + glow
+        container.appendChild(ring);
+      }
+    </script>
+  </div>
+</body>
+</html>
