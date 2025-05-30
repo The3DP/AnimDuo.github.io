@@ -1,4 +1,5 @@
-# AnimDuo
+<p align="center"># AnimDuo
+
 >What is AnimDuo?
 ##
 AnimDuo is the second repository of the of "Anim-" series.
