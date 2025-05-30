@@ -1,4 +1,4 @@
-<p align="center"># AnimDuo
+<p align="center"> AnimDuo
 
 >What is AnimDuo?
 ##
