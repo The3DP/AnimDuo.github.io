@@ -23,6 +23,7 @@ program is ww3schools.
 Click on this link to go to 
 their "Try it yourself" page which
 you can test my code on.
-https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default
+
+[*link here*](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default)
 
 ![100% Complete](https://img.shields.io/badge/Progress-100%25-darkgreen)
